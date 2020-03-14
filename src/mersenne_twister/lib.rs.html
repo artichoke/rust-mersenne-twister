@@ -76,7 +76,6 @@
 <span id="76">76</span>
 <span id="77">77</span>
 <span id="78">78</span>
-<span id="79">79</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// src/lib.rs</span>
 <span class="comment">//</span>
@@ -108,19 +107,20 @@
 <span class="doccomment">//! definition. Either flavor accepts a `u64` seed.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```</span>
-<span class="doccomment">//! extern crate mersenne_twister;</span>
-<span class="doccomment">//! extern crate rand;</span>
-<span class="doccomment">//! use mersenne_twister::MersenneTwister;</span>
-<span class="doccomment">//! use rand::{Rng, SeedableRng};</span>
+<span class="doccomment">//! # extern crate mersenne_twister;</span>
+<span class="doccomment">//! # use mersenne_twister::MersenneTwister;</span>
+<span class="doccomment">//! # use rand_core::{RngCore, SeedableRng};</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! fn main() {</span>
-<span class="doccomment">//!     // Get a seed somehow.</span>
-<span class="doccomment">//!     let seed: u64 = 0x123456789abcdef;</span>
-<span class="doccomment">//!     // Create the default RNG.</span>
-<span class="doccomment">//!     let mut rng: MersenneTwister = SeedableRng::from_seed(seed);</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//!     // start grabbing randomness from rng...</span>
-<span class="doccomment">//! }</span>
+<span class="doccomment">//! # fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {</span>
+<span class="doccomment">//! // Get a seed somehow.</span>
+<span class="doccomment">//! let seed: [u8; 8] = 0x1234_567_89ab_cdef_u64.to_ne_bytes();</span>
+<span class="doccomment">//! // Create the default RNG.</span>
+<span class="doccomment">//! let mut rng = MersenneTwister::from_seed(seed);</span>
+<span class="doccomment">//! // start grabbing randomness from rng...</span>
+<span class="doccomment">//! let mut buf = vec![0; 512];</span>
+<span class="doccomment">//! rng.try_fill_bytes(&amp;mut buf)?;</span>
+<span class="doccomment">//! # Ok(())</span>
+<span class="doccomment">//! # }</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! Or if you want to use the default (fixed) seeds that are specified</span>
@@ -141,8 +141,6 @@
 <span class="doccomment">//! is important to you.</span>
 
 <span class="attribute">#![<span class="ident">deny</span>(<span class="ident">missing_docs</span>)]</span>
-
-<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">rand</span>;
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">mt19937</span>::<span class="ident">MT19937</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">mt19937_64</span>::<span class="ident">MT19937_64</span>;
