@@ -2,10 +2,11 @@
 name = "mersenne_twister"
 version = "1.1.1"
 authors = ["David Creswick <dcrewi@gyrae.net>"]
-license = "MIT/Apache-2.0"
+edition = "2018"
+license = "MIT OR Apache-2.0"
 description = "Mersenne Twister pseudorandom number generator"
-repository = "https://github.com/dcrewi/rust-mersenne-twister"
-documentation = "https://docs.rs/mersenne_twister/"
+repository = "https:/github.com/artichoke/rust-mersenne-twister"
+documentation = "https://artichoke.github.io/rust-mersenne-twister/mersenne_twister/"
 readme = "README.md"
 keywords = ["random", "rand", "rng", "algorithm", "mersenne"]
 include = [
@@ -18,7 +19,3 @@ include = [
 
 [dependencies]
 rand = ">=0.3, <0.5"
-
-[badges]
-travis-ci = { repository = "dcrewi/rust-mersenne-twister" }
-maintenance = { status = "passively-maintained" }
