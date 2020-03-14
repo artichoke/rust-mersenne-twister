@@ -78,6 +78,12 @@
 <span id="78">78</span>
 <span id="79">79</span>
 <span id="80">80</span>
+<span id="81">81</span>
+<span id="82">82</span>
+<span id="83">83</span>
+<span id="84">84</span>
+<span id="85">85</span>
+<span id="86">86</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// src/lib.rs</span>
 <span class="comment">//</span>
@@ -88,6 +94,12 @@
 <span class="comment">// license &lt;LICENSE-MIT or http://opensource.org/licenses/MIT&gt;, at your</span>
 <span class="comment">// option. All files in the project carrying such notice may not be copied,</span>
 <span class="comment">// modified, or distributed except according to those terms.</span>
+
+<span class="attribute">#![<span class="ident">deny</span>(<span class="ident">clippy</span>::<span class="ident">all</span>)]</span>
+<span class="attribute">#![<span class="ident">deny</span>(<span class="ident">clippy</span>::<span class="ident">pedantic</span>)]</span>
+<span class="attribute">#![<span class="ident">deny</span>(<span class="ident">missing_docs</span>, <span class="ident">intra_doc_link_resolution_failure</span>)]</span>
+<span class="attribute">#![<span class="ident">warn</span>(<span class="ident">rust_2018_idioms</span>)]</span>
+<span class="attribute">#![<span class="ident">forbid</span>(<span class="ident">unsafe_code</span>)]</span>
 
 <span class="doccomment">//! # Mersenne Twister</span>
 <span class="doccomment">//!</span>
